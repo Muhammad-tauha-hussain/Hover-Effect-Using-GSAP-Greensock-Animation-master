@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="author" content="harrnish" />
+  <title>Hover effect using GSAP • Codegrid</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+
+  <!-- TweenMax - GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.4/TweenMax.min.js"></script>
+</head>
+
+<body>
+
+  <div class="styled-container">
+    <h1 class="main-heading">Muhammad Tauha Hussain</h1>
+    <h3 class="sub-heading">Welcome to API Calling</h3>
+  </div>
+  <div class="navigation-wrapper">
+    <div class="project-preview-wrapper">
+      <div class="project-preview"></div>
+    </div>
+    <ul class="navigation-list">
+      <li class="navigation-item">
+        <a href="" class="navigation-link navigation-link-1">
+          <span data-text="Pakistan">Pakistan</span>
+        </a>
+      </li>
+      <li class="navigation-item">
+        <a href="" class="navigation-link navigation-link-2">
+          <span data-text="Karachi">Karachi</span>
+        </a>
+      </li>
+      <li class="navigation-item">
+        <a href="" class="navigation-link navigation-link-3">
+          <span data-text="Lahore">Lahore</span>
+        </a>
+      </li>
+      <li class="navigation-item">
+        <a href="" class="navigation-link navigation-link-4">
+          <span data-text="Islamabad">Islamabad</span>
+        </a>
+      </li>
+      <li class="navigation-item">
+        <a href="" class="navigation-link navigation-link-5">
+          <span data-text="Quetta">Quetta</span>
+        </a>
+      </li>
+      <li class="navigation-item">
+        <a href="" class="navigation-link navigation-link-6">
+          <span data-text="Swat">Swat</span>
+        </a>
+      </li>
+      <li class="navigation-item">
+        <a href="" class="navigation-link navigation-link-7">
+          <span data-text="KPK">KPK</span>
+        </a>
+      </li>
+      <li class="navigation-item">
+        <a href="" class="navigation-link navigation-link-8">
+          <span data-text="Punjab">Punjab</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="progress-bar"></div>
+
+
+
+
+
+  <script>
+    $(document).ready(function () {
+      TweenMax.set(".project-preview", { with: 0 });
+
+      var tl = new TimelineLite();
+
+      $(document)
+        .on("mouseover", ".navigation-item", function (evt) {
+          tl = new TimelineLite();
+          tl.to($(".project-preview"), 1, {
+            width: "500px",
+            ease: Expo.easeInOut
+          });
+        })
+        .on("mouseout", ".navigation-item", function (evt) {
+          tl = new TimelineLite();
+          tl.to($(".project-preview"), 0.5, {
+            width: 0,
+            ease: Expo.easeInOut
+          });
+        });
+     
+      });
+
+      $(".navigation-link-1").hover(function () {
+        $(".project-preview").css({ "background-image": "url(img-1.jpg)" });
+      });
+      $(".navigation-link-2").hover(function(){
+        $(".project-preview").css({ "background-image": "url(img-2.jpg)" });
+      });
+      $(".navigation-link-3").hover(function(){
+        $(".project-preview").css({ "background-image": "url(image3.jpg)"});
+      })
+      $(".navigation-link-4").hover(function(){
+        $(".project-preview").css({ "background-image": "url(image4.jpg)"});
+      })
+      $(".navigation-link-5").hover(function(){
+        $(".project-preview").css({ "background-image": "url(image5.jpg)"});
+      })
+      $(".navigation-link-6").hover(function(){
+        $(".project-preview").css({ "background-image": "url(image6.jpg)"});
+      })
+      $(".navigation-link-7").hover(function(){
+        $(".project-preview").css({ "background-image": "url(image7.jpg)"});
+      })
+      $(".navigation-link-8").hover(function(){
+        $(".project-preview").css({ "background-image": "url(image8.jpg)"});
+      })
+
+
+      $(window).scroll(function() {
+        var scroll = $(window).scrollTop(),
+          dh = $(document).height(),
+          wh = $(window).height();
+        scrollPercent = (scroll / (dh - wh)) * 100;
+        $(".progress-bar").css("height", scrollPercent + "%");
+      });
+  </script>
+
+
+ 
+</body>
+
+</html>
